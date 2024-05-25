@@ -10,7 +10,7 @@ const Stadiums = () => {
 
   useEffect(() => {
     fetch(
-      "https://v3.football.api-sports.io/teams?country=Uruguay&league=270&season=2021",
+      "https://v3.football.api-sports.io/teams?country=England&league=39&season=2023",
       {
         method: "GET",
         headers: {

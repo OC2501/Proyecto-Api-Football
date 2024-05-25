@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import "../style/team.css"; 
+import { PlayerTemplate} from "../components/PlayerTemplate";
+
 
 const Team = () => {
-  const [teams, setTeams] = useState(null);
+  const [teams, setTeams] = useState([]);
+  const [selectedTeamId, setSelectedTeamId] = useState(null);
+  
 
   useEffect(() => {
     fetch(
-      "https://v3.football.api-sports.io/teams?country=Uruguay&league=270&season=2021",
+      "https://v3.football.api-sports.io/teams?country=England&league=39&season=2023",
       {
         method: "GET",
         headers: {
@@ -15,22 +19,24 @@ const Team = () => {
         },
       }
     )
-     .then((response) => response.json())
-     .then((data) => {
-        console.log(data.response);
-        setTeams(data.response);
+  .then((response) => response.json())
+  .then((data) => {
+        const newData = JSON.parse(JSON.stringify(data.response));
+        setTeams(newData);
       })
-     .catch((error) => console.log("error", error));
+  .catch((error) => console.log("error", error));
   }, []);
 
-  function verEstado() {
-    console.log(teams); // Corregido para usar 'teams'
-  }
+
+  const handleClick = (teamId) => {
+    setSelectedTeamId(teamId); 
+    console.log(selectedTeamId)
+  };
 
   return (
     <div className="container-main">
-      {teams
-       ? teams.map((team1) => (
+      {teams.length > 0
+  ? teams.map((team1) => (
             <div className="container" key={team1.team.id}>
               <div className="div-logo">
                 <img
@@ -43,15 +49,16 @@ const Team = () => {
                 <h1>{team1.team.name}</h1>
                 <p>Fundado: {team1.team.founded}</p>
                 <p>Estadio: {team1.venue.name}</p>
-                <button onClick={verEstado} className="btn-primary">
+                <button onClick={() => handleClick(team1.team.id)} className="btn-primary">
                   Ver jugadores
                 </button>
               </div>
             </div>
           ))
-        : null}
+        : <p>Cargando...</p>}
+      {selectedTeamId!== null && <PlayerTemplate teamId={selectedTeamId} />}
     </div>
   );
-};
+}
 
 export default Team;

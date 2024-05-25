@@ -1,16 +1,19 @@
 .container-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    background-color: #282c34;
+
   }
   
   .container {
     text-align: center;
-    padding-bottom: 48px;
-    padding-top: 48px;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color: #282c34;
+    height: 200px;
+    width: 400px;
+    margin: 10px;
   }
   .btn-primary {
     border: none;
@@ -29,17 +32,21 @@
     justify-items: center;
   }
   .img-logo {
-    width: 200px;
+    width: 80px;
+    margin: 10px;
   }
   .info-team {
     text-align: left;
   }
   .info-team h1 {
     color: white;
+    font-size: 20px;
   }
   
   .info-team p {
     color: white;
+    width: 200px;
+    font-size: 16px;
   }
   
   .div-vs h1 {

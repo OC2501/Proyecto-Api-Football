@@ -1,0 +1,36 @@
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .standings-table th,
+  .standings-table td {
+    background-color: black;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .standings-table tr:nth-child(even) {
+    background-color: #080808;
+  }
+  
+  .standings-table th {
+    background-color: #070707;
+    color: rgb(247, 241, 241);
+    font-weight: bold;
+  }
+  .standings-table img {
+    max-width: 50px; /* Tamaño máximo de la imagen */
+    height: auto; /* Mantener la proporción de la imagen */
+    object-fit: cover; /* Asegurar que la imagen cubra completamente el espacio asignado sin distorsionarse */
+    margin-right: 10px; /* Espacio a la derecha de la imagen para separarla del texto */
+}

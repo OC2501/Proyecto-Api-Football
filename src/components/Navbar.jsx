@@ -18,6 +18,9 @@ const Navbar = () => {
         <li>
           <Link to="/stadiums">ESTADIOS</Link>
         </li>
+        <li>
+          <Link to="/standings">CLASIFICACIONES</Link> {/* Nuevo enlace a la página de clasificaciones */}
+        </li>
       </ul>
     </nav>
   );

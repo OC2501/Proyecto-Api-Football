@@ -10,7 +10,7 @@ const InfoTeam = () => {
       <Navbar />
       <div className="container-infoTeam">
         <h1 className="title-infoTeam">Equipos</h1>
-        <p>Todos los equipos de primera division del futbol uruguayo.</p>
+        <p>Todos los equipos de primera division del futbol ingles.</p>
       </div>
       <Team/>
       <Footer />
